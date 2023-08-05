@@ -3,12 +3,15 @@
 
 	import LocaleSwitcher from '$components/LocaleSwitcher.svelte';
 	import ThemeSwitcher from '$components/ThemeSwitcher.svelte';
+	import Nader from '$components/Nader.svelte'
 </script>
 
 <header>
 	<a href="/{language}">
 		<h1>Home</h1>
 	</a>
+
+	<Nader />
 
 	<LocaleSwitcher />
 
