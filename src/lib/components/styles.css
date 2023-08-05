@@ -1,0 +1,91 @@
+
+ul.svelte-nv05xm {
+    list-style: none;
+    position: relative;
+    transform-origin: center;
+    width: var(--spinner-width);
+    aspect-ratio: 1/1;
+    display: grid;
+    place-items: center;
+    box-sizing: border-box;
+    border-radius: 50%;
+    border: 4px solid saddlebrown
+}
+
+.rotate.svelte-nv05xm {
+    animation: svelte-nv05xm-rotate var(--spin-time) ease-in-out forwards
+}
+
+.adjust.svelte-nv05xm {
+    transform: rotate(calc(0turn - var(--rotate-angle)))
+}
+
+li.svelte-nv05xm {
+    display: grid;
+    place-items: center;
+    position: absolute;
+    aspect-ratio: 1/1;
+    padding: .25em;
+    box-sizing: border-box;
+    border-radius: 50%;
+    cursor: pointer
+}
+
+@keyframes svelte-nv05xm-rotate {
+    to {
+        transform: rotate(calc(4turn + var(--rotate-angle)))
+    }
+}
+
+.wheel-center.svelte-nv05xm {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition-property: none;
+    transition-duration: 0s;
+    transition-timing-function: none
+}
+
+.winner.svelte-nv05xm {
+    animation-name: svelte-nv05xm-blinkingBG;
+    animation-duration: .3s;
+    animation-iteration-count: 5;
+    animation-timing-function: ease-in-out;
+    border: 1px solid black
+}
+
+.arrow-head.svelte-nv05xm {
+    width: 0;
+    height: 0;
+    border-left: calc(var(--spinner-radius) / 20) solid transparent;
+    border-right: calc(var(--spinner-radius) / 20) solid transparent;
+    border-top: calc(var(--spinner-radius) / 10) solid #555;
+    top: calc(var(--spinner-radius) / -10 + .25rem)
+}
+
+@keyframes svelte-nv05xm-blinkingBG {
+    0% {
+        background-color: red;
+        transform: translate(-50%,-50%) scale(1.05)
+    }
+
+    25% {
+        background-color: #ff0;
+        transform: translate(-50%,-50%) scale(.95) rotate(5deg)
+    }
+
+    50% {
+        background-color: green;
+        transform: translate(-50%,-50%) scale(1.05)
+    }
+
+    75% {
+        background-color: #00f;
+        transform: translate(-50%,-50%) scale(.95) rotate(-5deg)
+    }
+
+    to {
+        background-color: violet;
+        transform: translate(-50%,-50%) scale(1.05)
+    }
+}

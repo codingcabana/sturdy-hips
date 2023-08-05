@@ -3,17 +3,23 @@
 
 	import LocaleSwitcher from '$components/LocaleSwitcher.svelte';
 	import ThemeSwitcher from '$components/ThemeSwitcher.svelte';
-	import Nader from '$components/Nader.svelte'
+	import Spinner from '$components/Spinner.svelte';
+
+	import Nader from '$components/Nader.svelte';
 </script>
 
 <header>
-	<a href="/{language}">
-		<h1>Home</h1>
-	</a>
+	<div>
+		<a href="/{language}">
+			<h1>Home</h1>
+		</a>
 
-	<Nader />
+		<Nader />
 
-	<LocaleSwitcher />
+		<LocaleSwitcher />
 
-	<ThemeSwitcher />
+		<ThemeSwitcher />
+
+		<Spinner />
+	</div>
 </header>

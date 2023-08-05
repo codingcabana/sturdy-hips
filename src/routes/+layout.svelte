@@ -7,8 +7,9 @@
 	export let data;
 </script>
 
-<Header />
+<div class="px-20 py-20">
+	<Header />
 
-<slot />
-
+	<slot />
+</div>
 <SvelteTheme attribute="data-theme" />
