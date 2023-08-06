@@ -3,7 +3,7 @@
 	import { onMount } from 'svelte';
 
 	let pipe: KMLPipeline;
-	let files: FileList = [];
+	let files: FileList;
 	let videoSource: HTMLVideoElement;
 	let outputData: any[] = [];
 
@@ -12,7 +12,7 @@
 		pipe = new KMLPipeline('Outside LLMs Trainer', 1, '79705c77-f57b-449d-b856-03138e8859a7');
 		await pipe.initialize();
 	});
-	$: files.length > 0 && loadVideo(files[0]);
+	$: files && files.length > 0 && loadVideo(files[0]);
 	const loadVideo = async (video: File) => {
 		let url = URL.createObjectURL(video);
 		console.log(url);
