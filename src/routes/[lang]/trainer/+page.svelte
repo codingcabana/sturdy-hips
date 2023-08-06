@@ -6,6 +6,7 @@
 	let files: FileList;
 	let videoSource: HTMLVideoElement;
 	let outputData: any[] = [];
+	let crop: number[] = [0, 0, 0, 0];
 
 	onMount(async () => {
 		let { KMLPipeline } = await import('kml-pipe-ts');
@@ -19,14 +20,18 @@
 		videoSource.srcObject = null;
 		videoSource.src = url;
 		await videoSource.play();
+		crop = [0, 0, videoSource.videoHeight, videoSource.videoWidth];
 		processFrame();
 	};
 	const processFrame = async () => {
 		videoSource.pause();
-		let outputs = await pipe.execute([videoSource]);
+		let outputs = await pipe.execute([videoSource, crop]);
+		console.log(outputs[2]);
 		console.log('pushed data ' + JSON.stringify(outputs[0].value));
 		outputData.push({ data: outputs[0].value, time: Date.now() });
 		outputData = outputData;
+		console.log(crop);
+		//crop = outputs[1].value as number[];
 		videoSource.requestVideoFrameCallback(processFrame);
 		videoSource.play();
 	};
